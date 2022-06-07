@@ -6,7 +6,6 @@ from src.initialize import setup_db
 
 
 def init_bot() -> "Bot":
-    """Инстанцирует класс `Bot`"""
     bot = Bot(token=BOT_TOKEN)
     setup_blueprints(bot)
     setup_middlewares(bot)
@@ -14,13 +13,11 @@ def init_bot() -> "Bot":
 
 
 def setup_blueprints(bot: Bot):
-    """Загружает блюпринты из пакета `blueprints`"""
     for bp in load_blueprints_from_package("src/blueprints"):
         bp.load(bot)
 
 
 def setup_middlewares(bot: Bot):
-    """Загружает мидлвари из пакета `middlewares`"""
     for bp in load_blueprints_from_package("src/middlewares"):
         bp.load(bot)
 
